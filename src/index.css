@@ -1,13 +1,68 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.categories{
+    height: 1000px;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.categorie{
+    float: left;
+    margin-left: 20px;
+    height: 150px;
+    background-color:white;
+    color: #5a5a5a;
+    font-family: 'Arial';
+    width: 150px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(42,42,42,0.1);
+    cursor: pointer;
+}
+button{
+    width: 100px;
+    height: 25px;
+    color: aliceblue;
+    font-family: 'Arial';
+    font-size: 15px;
+    border: 0px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete{
+    background-color: rgb(213,67,67);
+}
+.change{
+    background-color: rgb(0,196,147);
+}
+.title{
+    height: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.categorie:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.delete:hover{
+    background-color: rgb(184,58,58);
+}
+.change:hover{
+    background-color: rgb(0,166,124);
+}
+.buttonAdd:hover{
+    background-color: rgb(31,89,136);
+}
+.Add{
+    text-align: center; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.buttonAdd{
+    margin-left: 10px;
+    background-color: rgb(39,111,169);
+}
+.Change{
+    width: 60px;
+}
+.app{
+    width: 40px;
+    margin-left: 10px;
+    background-color: teal;
 }
