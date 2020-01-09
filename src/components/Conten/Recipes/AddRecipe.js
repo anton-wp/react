@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AddRecipeByCategorieThunk } from '../../../action/actionCreator'
+import { AddRecipeByCategorieThunk, GetRecipeAll } from '../../../action/actionCreator'
 
 
 
@@ -40,4 +40,4 @@ class AddRecipe extends Component {
 }
 export default connect(state => ({
   tasks: state.tasks,
-}), { AddRecipeByCategorieThunk }) (AddRecipe);
+}), { AddRecipeByCategorieThunk, GetRecipeAll }) (AddRecipe);

@@ -11,8 +11,7 @@ class Recipe extends Component {
     }
     
     componentDidMount() {
-        this.props.GetRecipeById(this.props._id)
-        console.log(this.props._id)
+        this.props.GetRecipeById(this.props._id);
     }
     click = () => {
         console.log(this.props.tasks[3])

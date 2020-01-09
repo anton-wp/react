@@ -65,7 +65,7 @@ export const GetRecipeAll = () => {
 export const GetRecipeById = (id) => {
     return (dispatch) => {
         getRecipeById(id).then(recipe => {
-            dispatch(SetRecipeAll(recipe));
+            dispatch(SetRecipeById(recipe));
         });
     }
 }
@@ -73,6 +73,7 @@ export const GetRecipeByCategorieThunk = (id) => {
     return (dispatch) => {
         getRecipeByCategories(id).then(recipe => {
             dispatch(SetRecipeByCategories(recipe));
+            dispatch(SetRecipeAll(recipe));
         });
     }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AddCategorieThunk, GetRecipeAll } from '../../../action/actionCreator';
+import { AddCategorieThunk } from '../../../action/actionCreator';
 
 
 class CategorieAdd extends Component {
@@ -13,11 +13,13 @@ class CategorieAdd extends Component {
         })
     }
     Add = ({ key }) => {
-        if ( key === 'Enter' || !key ) {
-            this.props.AddCategorieThunk(this.state.title);
-            this.setState({
-                title: ''
-            })
+        if(key) {
+            if ( key === 'Enter' || !key ) {
+                this.props.AddCategorieThunk(this.state.title);
+                this.setState({
+                    title: ''
+                })
+            }
         }
     }
 
@@ -35,4 +37,4 @@ class CategorieAdd extends Component {
 }
 export default connect(state => ({
     tasks: state.tasks,
-}), { AddCategorieThunk, GetRecipeAll }) (CategorieAdd);
+}), { AddCategorieThunk }) (CategorieAdd);

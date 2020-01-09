@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { GetCategoriesThunk, RemoveCategorieThunk,
-     ChangeCategorie, GetRecipeAll } from '../../../action/actionCreator';
+import { RemoveCategorieThunk, ChangeCategorie } from '../../../action/actionCreator';
 import ChangeCategories from './ChangeCategories';
 import { NavLink } from 'react-router-dom';
 
@@ -11,18 +10,13 @@ class Categorie extends Component {
     state = {
         tasks: '',
     }
-    componentDidMount() {
-        // this.props.GetCategoriesThunk();
-        this.props.GetRecipeAll();
-    } 
+    
     DeleteCategorie = (_id) => {
         this.props.RemoveCategorieThunk(_id);
     }
     ChangeCategorie = (_id) => {
         this.props.ChangeCategorie(_id);
-        
     } 
-
     render() { 
         return (
             <div >
@@ -43,4 +37,4 @@ class Categorie extends Component {
 
 export default connect(state => ({
     tasks: state.tasks,
-}), { GetCategoriesThunk, RemoveCategorieThunk, ChangeCategorie, GetRecipeAll }) (Categorie);
+}), { RemoveCategorieThunk, ChangeCategorie }) (Categorie);

@@ -6,8 +6,7 @@ import { SET_CATEGORIES, CANGE_CATEGORIE, SET_RECIPE_BY_CATEGORIES,
 const tasks = (state = [[],[],[],[]], { data, type, _id, recipe}) => {
     switch (type) { 
         case SET_CATEGORIES :
-            let store = [data, [], [], state[3]] 
-            console.log(state);       
+            let store = [data, [], [], state[3]]       
         return store;
         case CANGE_CATEGORIE :
             let stor = state[0];
@@ -18,7 +17,7 @@ const tasks = (state = [[],[],[],[]], { data, type, _id, recipe}) => {
                     stor[i].isDeleted = false;
                 }
             }
-            return [stor,[]];
+            return [stor, state[1], state[2], state[3]];
         case SET_RECIPE_BY_CATEGORIES :
             let recipeCategorie = [state[0], recipe, [], state[3]]   
         return recipeCategorie;
@@ -26,8 +25,7 @@ const tasks = (state = [[],[],[],[]], { data, type, _id, recipe}) => {
             let recipeCategorieId = [state[0], state[1], recipe, state[3]]   
         return recipeCategorieId;
         case SET_RECIPE_ALL :
-            let recipeAll = [[], [], [], recipe] 
-            console.log(state); 
+            let recipeAll = [state[0], state[1], state[2], recipe]  
         return recipeAll;
 
         default:
