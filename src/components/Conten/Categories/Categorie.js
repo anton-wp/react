@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 
 class Categorie extends Component {
     state = {
-        tasks: '',
+        tasks: '',        
     }
     
     DeleteCategorie = (_id) => {

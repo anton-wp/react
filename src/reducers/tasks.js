@@ -13,54 +13,37 @@ let store = {
 const tasks = (state = store, { data, type, _id, recipe}) => {
     switch (type) { 
         case SET_CATEGORIES :
-            const newState  = {
-                categories: data,
-                recipeByCategorie: state.recipeByCategorie,
-                recipeById: state.recipeById,
-                recipeAll: state.recipeAll
-            }
-            return newState; 
+            return {...state, categories: data} ; 
         case CANGE_CATEGORIE :
-            let newState4 = state.categories;
-            for(let i = 0; i < newState4.length; i++) {
-                if(newState4[i]._id === _id) {
-                    newState4[i].isDeleted = !newState4[i].isDeleted;
-                }else {
-                    newState4[i].isDeleted = false;
-                }
-            }
-            let newState5 = {
-                categories: newState4,
-                recipeByCategorie: state.recipeByCategorie,
-                recipeById: state.recipeById,
-                recipeAll: state.recipeAll
-            };
-
-            return newState5; 
+            // let newState4 = state.categories;
+            // for(let i = 0; i < newState4.length; i++) {
+            //     if(newState4[i]._id === _id) {
+            //         newState4[i].isDeleted = !newState4[i].isDeleted;
+            //     }else {
+            //         newState4[i].isDeleted = false;
+            //     }
+            // }
+            // let newState5 = {
+            //     categories: newState4,
+            //     recipeByCategorie: state.recipeByCategorie,
+            //     recipeById: state.recipeById,
+            //     recipeAll: state.recipeAll
+            // };
+            
+            return {...state, categories: state.categories.map(category =>
+                category._id === _id ? 
+                {...category, isDeleted: !category.isDeleted} :
+                {...category, isDeleted: false}
+                )}
+                ;
+            
+             
         case SET_RECIPE_BY_CATEGORIES :
-            const newState1  = {
-                categories: state.categories,
-                recipeByCategorie: recipe,
-                recipeById: state.recipeById,
-                recipeAll: state.recipeAll
-            }
-            return newState1; 
+            return {...state, recipeByCategorie: recipe}; 
         case SET_RECIPE_BY_ID :
-            const newState2 = {
-                categories: state.categories,
-                recipeByCategorie: state.recipeByCategorie,
-                recipeById: recipe,
-                recipeAll: state.recipeAll
-            }
-            return newState2;
+            return {...state, recipeById: recipe};
         case SET_RECIPE_ALL :
-            const newState3  = {
-                categories: state.categories,
-                recipeByCategorie: state.recipeByCategorie,
-                recipeById: state.recipeById,
-                recipeAll: recipe
-            }
-            return newState3;
+            return {...state, recipeAll: recipe};
         default:
             return state;
     }
