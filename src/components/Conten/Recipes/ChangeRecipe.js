@@ -11,8 +11,8 @@ class ChangeRecipe extends Component {
     }
     componentDidMount() {
         this.setState({
-            title: this.props.tasks[2].title,
-            text: this.props.tasks[2].text,
+            title: this.props.tasks.recipeById.title,
+            text: this.props.tasks.recipeById.text,
         });
     } 
     handleChangeTitle = ({target: {value} }) => {
@@ -28,8 +28,8 @@ class ChangeRecipe extends Component {
     ChangeRecipe = () => {
         
         this.props.click();
-        this.props.UpdateRecipeThunk(this.props.tasks[2]._id, this.state.title, 
-            this.state.text, this.props.tasks[2].categoryId) 
+        this.props.UpdateRecipeThunk(this.props.tasks.recipeById._id, this.state.title, 
+            this.state.text, this.props.tasks.recipeById.categoryId) 
     }
     render(){
         return (

@@ -13,7 +13,7 @@ class CategorieAdd extends Component {
         })
     }
     Add = ({ key }) => {
-        if(key) {
+        if(this.state.title !== '') {
             if ( key === 'Enter' || !key ) {
                 this.props.AddCategorieThunk(this.state.title);
                 this.setState({

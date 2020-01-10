@@ -19,7 +19,7 @@ class ChangeCategories extends Component {
             title: value,
         })
     }
-    App = () => {
+    Edit = () => {
         this.props.UpdateCategorieThunk(this.state.title, this.props.id, this.state.parentId);
     }
    
@@ -27,7 +27,7 @@ class ChangeCategories extends Component {
         return (
             <div>
                 <input type="text" className="Change" onChange={this.handleChange} value={this.state.title}/>
-                <button className='app' onClick={() => this.App()} >app</button>
+                <button className='app' onClick={() => this.Edit()} >Edit</button>
             </div>
         );
     }

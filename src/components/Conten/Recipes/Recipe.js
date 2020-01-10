@@ -11,10 +11,10 @@ class Recipe extends Component {
     }
     
     componentDidMount() {
-        this.props.GetRecipeById(this.props._id);
+        this.props.GetRecipeById(this.props.match.params.recipeId);
+        
     }
     click = () => {
-        console.log(this.props.tasks[3])
         this.setState({
             change: !this.state.change
         })
@@ -22,11 +22,11 @@ class Recipe extends Component {
     render(){
         return (
         <div>
-            <h2>{this.props.tasks[2].title}</h2>
-            <h3>{this.props.tasks[2].text}</h3>
+            <h2>{this.props.tasks.recipeById.title}</h2>
+            <h3>{this.props.tasks.recipeById.text}</h3>
             {this.state.change ? <ChangeRecipe click={this.click} /> : null}
             <button onClick={this.click}>click</button>
-            <NavLink to={this.props.categoryId}>
+            <NavLink to={`/categorie/${this.props.tasks.recipeById.categoryId}`}>
             назад
             </NavLink>
         </div>
