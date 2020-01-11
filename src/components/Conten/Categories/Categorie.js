@@ -27,8 +27,8 @@ class Categorie extends Component {
                             <h4 className='title'>{category.title}</h4>
                         </NavLink>    
                         {category.isDeleted ? <ChangeCategories id={category._id} title={category.title}/>  : null}
-                        <button className='delete' onClick={() => this.DeleteCategorie(category._id)}>Delete</button>
-                        {!category.isDeleted ? <button className='change' onClick={() => this.ChangeCategorie(category._id)}>Edit</button> : null}
+                        <button className='delete buttonCategorie' onClick={() => this.DeleteCategorie(category._id)}>Delete</button>
+                        {!category.isDeleted ? <button className='change buttonCategorie' onClick={() => this.ChangeCategorie(category._id)}>Edit</button> : null}
                     </div>
                 ))}
             </div>

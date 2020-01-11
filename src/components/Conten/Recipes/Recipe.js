@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ChangeRecipe from './ChangeRecipe';
-import { GetRecipeById } from '../../../action/actionCreator'
+import { GetRecipeById } from '../../../action/actionCreator';
+import arrow from '../../../img/back.svg';
 
 
 class Recipe extends Component {
@@ -14,7 +15,7 @@ class Recipe extends Component {
         this.props.GetRecipeById(this.props.match.params.recipeId);
         
     }
-    click = () => {
+    edit = () => {
         this.setState({
             change: !this.state.change
         })
@@ -22,13 +23,15 @@ class Recipe extends Component {
     render(){
         return (
         <div>
-            <h2>{this.props.tasks.recipeById.title}</h2>
-            <h3>{this.props.tasks.recipeById.text}</h3>
-            {this.state.change ? <ChangeRecipe click={this.click} /> : null}
-            <button onClick={this.click}>click</button>
             <NavLink to={`/categorie/${this.props.tasks.recipeById.categoryId}`}>
-            назад
+                <img className="Back" src={arrow} alt="Back"/>
             </NavLink>
+            <h3 className="TitleCategoryRecipe">{this.props.tasks.recipeById.title}</h3>
+            <h3 className="TextRecipe">{this.props.tasks.recipeById.text}</h3>
+            {this.state.change ? <ChangeRecipe click={this.edit} /> : null}
+            {!this.state.change ? <button onClick={this.edit} 
+            className="app EditRecipe">Add description</button> : null}
+            
         </div>
         );
     }

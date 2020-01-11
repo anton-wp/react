@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import './Header.css'
-import Nav from './nav';
+import { connect } from 'react-redux'; 
+import logo from '../../img/logo.png';
 
-
-export default class Header extends Component {
+class Header extends Component {
 
     render() {
         return (
             <div className='header'>
-               Header
-               <Nav />
+                <img className="logo" src={logo} alt="logo"/>
+               {/* <button onClick={() => console.log(this.props.tasks)}>click</button> */}
             </div>
         );
     }
 }
+export default connect(state => ({
+    tasks: state.tasks,
+  }))(Header);

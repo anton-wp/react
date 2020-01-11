@@ -26,9 +26,10 @@ class CategorieAdd extends Component {
     render() {
         return (
             <div className="Add">
+                <h1>Category :</h1>
                 <input onChange={this.handleChange}
                 value={this.state.title} type='text' 
-                onKeyPress={this.Add}/>
+                onKeyPress={this.Add} className="inputAdd"/>
                 <button onClick={this.Add}
                 className="buttonAdd">Add</button>
             </div>

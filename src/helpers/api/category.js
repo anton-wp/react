@@ -8,6 +8,13 @@ export function getCategories () {
         return response.data;
     })
 }
+export function getCategoryList (_id) {
+    return axios.get(`${API_HOST}category/categoryList/${_id}`)
+    .then(response => {
+        return response.data;
+    })
+}
+
 export function removeCategorie (_id) {
     return axios.delete(`${API_HOST}category/${_id}`)
 }

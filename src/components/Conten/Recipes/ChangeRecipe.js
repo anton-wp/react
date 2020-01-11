@@ -26,17 +26,19 @@ class ChangeRecipe extends Component {
         }) 
     }
     ChangeRecipe = () => {
-        
         this.props.click();
         this.props.UpdateRecipeThunk(this.props.tasks.recipeById._id, this.state.title, 
             this.state.text, this.props.tasks.recipeById.categoryId) 
     }
     render(){
         return (
-        <div>
-            <input type="text" onChange={this.handleChangeTitle} value={this.state.title}/>
-            <input type="text" onChange={this.handleChangeText} value={this.state.text}/>
-            <button onClick={this.ChangeRecipe}>click</button>
+        <div className="ChangeRecipe">
+            <input type="text" onChange={this.handleChangeTitle} 
+            value={this.state.title} className="inputAdd inputAddRecipe" />
+            <input type="text" onChange={this.handleChangeText} 
+            value={this.state.text} className="inputAdd inputAddRecipe"/>
+            <button onClick={this.ChangeRecipe} className="app">Edit</button>
+            <button onClick={this.props.click} className="app">Back</button>
         </div>
         );
     }

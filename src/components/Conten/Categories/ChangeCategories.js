@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { UpdateCategorieThunk } from '../../../action/actionCreator';
-
+import { UpdateCategorieThunk, ChangeCategorie } from '../../../action/actionCreator';
 
 class ChangeCategories extends Component {
     state = {
         title: '',
-        parentId: ''
+        parentId: '',
     }
      
     componentDidMount() {
@@ -22,12 +21,17 @@ class ChangeCategories extends Component {
     Edit = () => {
         this.props.UpdateCategorieThunk(this.state.title, this.props.id, this.state.parentId);
     }
-   
+    Exit = () =>  {
+        this.props.ChangeCategorie(this.props.id);
+    }
+    
     render() {
         return (
             <div>
                 <input type="text" className="Change" onChange={this.handleChange} value={this.state.title}/>
                 <button className='app' onClick={() => this.Edit()} >Edit</button>
+                <button className='app' onClick={() => this.Exit()} >Back</button>
+
             </div>
         );
     }
@@ -35,4 +39,4 @@ class ChangeCategories extends Component {
 
 export default connect(state => ({
     tasks: state.tasks,
-}), { UpdateCategorieThunk }) (ChangeCategories);
+}), { UpdateCategorieThunk, ChangeCategorie }) (ChangeCategories);

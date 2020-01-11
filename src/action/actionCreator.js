@@ -1,5 +1,6 @@
-import { SET_CATEGORIES, CANGE_CATEGORIE, SET_RECIPE_BY_CATEGORIES, SET_RECIPE_BY_ID, SET_RECIPE_ALL } from '../config';
-import { getCategories, removeCategorie, addCategorie, updateCategorie } from '../helpers/api/category';
+import { SET_CATEGORIES, CANGE_CATEGORIE, SET_RECIPE_BY_CATEGORIES, SET_RECIPE_BY_ID, SET_RECIPE_ALL, SET_CATEGORY_LIST } from '../config';
+import { getCategories, removeCategorie, addCategorie, 
+    updateCategorie, getCategoryList } from '../helpers/api/category';
 import { getRecipeByCategories, addRecipe, removeRecipe, updateRecipe, 
     getRecipeById, getAllRecipe } from '../helpers/api/recipes';
 
@@ -7,11 +8,21 @@ export const SetCategories = (data) => ({
     type: SET_CATEGORIES,
     data
 });
+export const SetCategoryList = (data) => ({
+    type: SET_CATEGORY_LIST,
+    data
+});
 export const ChangeCategorie = (_id) => ({
     type: CANGE_CATEGORIE,
     _id
-})
-
+});
+export const SetCategoryListThunk = (id) => {
+    return (dispatch) => {
+        getCategoryList(id).then(data => {
+            dispatch(SetCategoryList(data[0].title));
+        });
+    }
+}
 export const GetCategoriesThunk = () => {
     return (dispatch) => {
         getCategories().then(data => {

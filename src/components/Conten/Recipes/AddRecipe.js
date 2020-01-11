@@ -21,19 +21,24 @@ class AddRecipe extends Component {
     })
   }
   AddRecipe = () => {
-    this.props.AddRecipeByCategorieThunk(this.state.titleRecipe, this.state.textRecipe, this.props._id);
-    this.setState({
-        titleRecipe: '',
-        textRecipe: '', 
-    })
+    if(this.state.titleRecipe && this.state.textRecipe) { 
+      this.props.AddRecipeByCategorieThunk(this.state.titleRecipe, this.state.textRecipe, this.props._id);
+      this.setState({
+          titleRecipe: '',
+          textRecipe: '', 
+      })
+    }
   }
     
   render(){
     return (
-        <div>
-            <input type="text" value={this.state.titleRecipe} onChange={this.handleChangeTitle} placeholder="title"/>
-            <input type="text" value={this.state.textRecipe} onChange={this.handleChangeText} placeholder="text"/>
-            <button className='buttonAdd' onClick={this.AddRecipe}>add</button>
+        <div className="Add">
+            <h1>Recipe add :</h1>
+            <input type="text" value={this.state.titleRecipe} onChange={this.handleChangeTitle} 
+            placeholder="title" className="inputAdd inputAddRecipe"/>
+            <input type="text" value={this.state.textRecipe} onChange={this.handleChangeText} 
+            placeholder="text" className="inputAdd inputAddRecipe"/>
+            <button className='buttonAdd' onClick={this.AddRecipe}>Add</button>
         </div>
     );
   }
