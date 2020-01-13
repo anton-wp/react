@@ -6,10 +6,12 @@ import { AddCategorieThunk } from '../../../action/actionCreator';
 class CategorieAdd extends Component {
     state = {
         title: '',
+        border: true
     }
     handleChange = ({target: {value} }) => {
         this.setState({
             title: value,
+            border: true
         })
     }
     Add = ({ key }) => {
@@ -20,6 +22,11 @@ class CategorieAdd extends Component {
                     title: ''
                 })
             }
+        } else {
+            this.setState({
+                border: false
+            })
+            alert('Введите название категории');
         }
     }
 
@@ -29,7 +36,8 @@ class CategorieAdd extends Component {
                 <h1>Category :</h1>
                 <input onChange={this.handleChange}
                 value={this.state.title} type='text' 
-                onKeyPress={this.Add} className="inputAdd"/>
+                onKeyPress={this.Add} 
+                className={this.state.border ? "inputAdd" : "inputAdd redBorder"}/>
                 <button onClick={this.Add}
                 className="buttonAdd">Add</button>
             </div>

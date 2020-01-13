@@ -108,6 +108,9 @@ h4{
     border-radius: 5px;
     border-color: rgb(203, 209, 214);
 }
+.redBorder{
+    border-color: red;
+}
 .Change{
     width: 140px;
     height: 30px;
