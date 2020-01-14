@@ -30,6 +30,7 @@ a {
     height: 1000px;
     font-family: 'Arial';
     color: rgb(90,90,90);
+    background-color: rgb(240, 232, 232);
 }
 .categorie{
     float: left;
@@ -90,7 +91,6 @@ h4{
 }
 .Add{
     text-align: center; 
-    margin-top: 30px;
     margin-bottom: 40px; 
 }
 .buttonAdd{

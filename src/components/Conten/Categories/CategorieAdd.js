@@ -15,18 +15,19 @@ class CategorieAdd extends Component {
         })
     }
     Add = ({ key }) => {
-        if(this.state.title !== '') {
-            if ( key === 'Enter' || !key ) {
+        if ( key === 'Enter' || !key ) {
+            if(this.state.title !== '') {
                 this.props.AddCategorieThunk(this.state.title);
                 this.setState({
                     title: ''
                 })
+            } else {
+                alert('Введите название категории');
+                this.setState({
+                    border: false
+                })
+                
             }
-        } else {
-            this.setState({
-                border: false
-            })
-            alert('Введите название категории');
         }
     }
 
