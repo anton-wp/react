@@ -11,6 +11,7 @@ class ChangeCategories extends Component {
     componentDidMount() {
         this.setState({
             title: this.props.title,
+            parentId: this.props.parentId
         });
     } 
     handleChange = ({target: {value} }) => {

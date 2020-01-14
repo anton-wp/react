@@ -9,7 +9,7 @@ class Header extends Component {
         return (
             <div className='header'>
                 <img className="logo" src={logo} alt="logo"/>
-               {/* <button onClick={() => console.log(this.props.tasks)}>click</button> */}
+               <button onClick={() => console.log(this.props.tasks)}>click</button>
             </div>
         );
     }

@@ -18,9 +18,10 @@ export function getCategoryList (_id) {
 export function removeCategorie (_id) {
     return axios.delete(`${API_HOST}category/${_id}`)
 }
-export function addCategorie (title) {
+export function addCategorie (title, parentId) {
     return axios.post(`${API_HOST}category/create`, {
-        title: title
+        title: title,
+        parentId: parentId
       })
 }
 export function updateCategorie (title, id, parentId) {

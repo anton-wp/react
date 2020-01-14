@@ -6,13 +6,14 @@ let store = {
     recipeByCategorie: [],
     recipeById: [],
     recipeAll: [],
-    categoryList: []
+    categoryListTitle: [],
+    categoryListId: [],
 }
 
 
 
-const tasks = (state = store, { data, type, _id, recipe}) => {
-    switch (type) { 
+const tasks = (state = store, { data, type, _id, recipe, id}) => {
+    switch (type) {
         case SET_CATEGORIES :
             return {...state, categories: data} ; 
         case CANGE_CATEGORIE :
@@ -24,7 +25,11 @@ const tasks = (state = store, { data, type, _id, recipe}) => {
         case SET_RECIPE_BY_CATEGORIES :
             return {...state, recipeByCategorie: recipe}; 
         case SET_CATEGORY_LIST :
-            return {...state, categoryList: data}; 
+            let newState = data.filter(category => category._id === id )   
+            return {...state, 
+                categoryListTitle: newState[0].title,
+                categoryListId: newState[0]._id
+            }; 
         case SET_RECIPE_BY_ID :
             return {...state, recipeById: recipe};
         case SET_RECIPE_ALL :

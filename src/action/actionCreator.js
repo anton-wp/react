@@ -4,13 +4,15 @@ import { getCategories, removeCategorie, addCategorie,
 import { getRecipeByCategories, addRecipe, removeRecipe, updateRecipe, 
     getRecipeById, getAllRecipe } from '../helpers/api/recipes';
 
+
 export const SetCategories = (data) => ({
     type: SET_CATEGORIES,
     data
 });
-export const SetCategoryList = (data) => ({
+export const SetCategoryList = (data, id) => ({
     type: SET_CATEGORY_LIST,
-    data
+    data,
+    id
 });
 export const ChangeCategorie = (_id) => ({
     type: CANGE_CATEGORIE,
@@ -19,7 +21,7 @@ export const ChangeCategorie = (_id) => ({
 export const SetCategoryListThunk = (id) => {
     return (dispatch) => {
         getCategoryList(id).then(data => {
-            dispatch(SetCategoryList(data[0].title));
+            dispatch(SetCategoryList(data, id));
         });
     }
 }
@@ -37,9 +39,9 @@ export const RemoveCategorieThunk = (_id) => {
         });
     }
 }
-export const AddCategorieThunk = (title) => {
+export const AddCategorieThunk = (title, parentId) => {
     return (dispatch) => {
-        addCategorie(title).then(() => {
+        addCategorie(title, parentId).then(() => {
             dispatch(GetCategoriesThunk());
         });
     }

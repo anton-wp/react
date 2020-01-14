@@ -6,7 +6,13 @@ import { AddCategorieThunk } from '../../../action/actionCreator';
 class CategorieAdd extends Component {
     state = {
         title: '',
+        parentId: null,
         border: true
+    }
+    componentDidMount() {
+        this.setState({
+            parentId: this.props.parentId
+        })
     }
     handleChange = ({target: {value} }) => {
         this.setState({
@@ -17,7 +23,7 @@ class CategorieAdd extends Component {
     Add = ({ key }) => {
         if ( key === 'Enter' || !key ) {
             if(this.state.title !== '') {
-                this.props.AddCategorieThunk(this.state.title);
+                this.props.AddCategorieThunk(this.state.title, this.state.parentId);
                 this.setState({
                     title: ''
                 })
