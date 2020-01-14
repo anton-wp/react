@@ -14,20 +14,20 @@ class CategorieRecipe extends Component {
     title: '',
     key: ''
   }
-  componentDidUpdate(prevState, prevProps){
-    console.log(this.props)
-    console.log(prevProps)
+  componentDidUpdate(){
+    // console.log(this.props)
+    // console.log(prevProps)
     if (this.props.tasks.categoryListId !== this.props.categoryId){
     this.props.GetRecipeByCategorieThunk(this.props.categoryId);
     this.props.SetCategoryListThunk(this.props.categoryId);
     
     }
   }
-  // componentDidMount() {
-  //   console.log('2')
-  //   this.props.GetRecipeByCategorieThunk(this.props.categoryId);
-  //   this.props.SetCategoryListThunk(this.props.categoryId);
-  // }
+  componentDidMount() {
+    console.log('2')
+    this.props.GetRecipeByCategorieThunk(this.props.categoryId);
+    this.props.SetCategoryListThunk(this.props.categoryId);
+  }
   DeleteRecipe = (id) => {
     this.props.RemoveRecipeThunk(id, this.props.categoryId);
   } 
@@ -37,7 +37,7 @@ class CategorieRecipe extends Component {
     return (
       <div>
         <Link to="/"><img className="Back" src={arrow} alt="Back"/></Link>
-        <h3 className="TitleCategoryRecipe">{this.props.tasks.categoryList}</h3>
+        <h3 className="TitleCategoryRecipe">{this.props.tasks.categoryListTitle}</h3>
         <CategorieAdd parentId={this.props.categoryId} />
         <Categorie  url={this.props.url} _id={this.props.categoryId} />
         <AddRecipe _id={this.props.categoryId} />

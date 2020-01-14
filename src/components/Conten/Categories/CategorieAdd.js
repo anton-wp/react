@@ -10,10 +10,20 @@ class CategorieAdd extends Component {
         border: true
     }
     componentDidMount() {
+        console.log(this.props.parentId)
         this.setState({
             parentId: this.props.parentId
         })
     }
+    componentDidUpdate(){
+        if (this.state.parentId !== this.props.parentId){
+            this.setState({
+                parentId: this.props.parentId
+            })
+        
+        }
+      }
+
     handleChange = ({target: {value} }) => {
         this.setState({
             title: value,
