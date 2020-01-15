@@ -9,7 +9,7 @@ class CategoryAndRecipe extends Component {
     return (
       <div>
         <CategorieRecipe categoryId={this.props.match.params.categoryId} 
-        url={this.props.match.url}  />
+          url={this.props.match.url}  />
       </div>
     );
   }

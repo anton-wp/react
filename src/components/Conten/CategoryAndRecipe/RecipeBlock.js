@@ -18,12 +18,12 @@ class RecipeBlock extends Component {
           <AddRecipe _id={this.props.categoryId} />
           {this.props.tasks.recipeByCategorie.map(recipe => (
               <div className="categorie" key={recipe._id}>
-              <Link to={`/recipe/${recipe._id}`}>
-                <h2>{recipe.title}</h2>
-                <h3>{recipe.text}</h3>
-              </Link>
-              <button className='delete buttonCategorie' 
-              onClick={() => this.DeleteRecipe(recipe._id)}>Delete</button>
+                <Link to={`/recipe/${recipe._id}`}>
+                  <h2>{recipe.title}</h2>
+                  <h3>{recipe.text}</h3>
+                </Link>
+                <button className='delete buttonCategorie' 
+                onClick={() => this.DeleteRecipe(recipe._id)}>Delete</button>
               </div>
           ))}
       </div>

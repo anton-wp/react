@@ -48,11 +48,11 @@ class CategorieAdd extends Component {
             <div className="Add">
                 <h1>Category :</h1>
                 <input onChange={this.handleChange}
-                value={this.state.title} type='text' 
-                onKeyPress={this.Add} 
-                className={this.state.border ? "inputAdd" : "inputAdd redBorder"}/>
+                    value={this.state.title} type='text' 
+                    onKeyPress={this.Add} 
+                    className={this.state.border ? "inputAdd" : "inputAdd redBorder"}/>
                 <button onClick={this.Add}
-                className="buttonAdd">Add</button>
+                    className="buttonAdd">Add</button>
             </div>
         );
     }

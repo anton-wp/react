@@ -8,6 +8,7 @@ let store = {
     recipeAll: [],
     categoryListTitle: [],
     categoryListId: [],
+    categoryList:[]
 }
 
 
@@ -25,10 +26,11 @@ const tasks = (state = store, { data, type, _id, recipe, id}) => {
         case SET_RECIPE_BY_CATEGORIES :
             return {...state, recipeByCategorie: recipe}; 
         case SET_CATEGORY_LIST :
-            let newState = data.filter(category => category._id === id )   
+            let newState = data.filter(category => category._id === id )  
             return {...state, 
                 categoryListTitle: newState[0].title,
-                categoryListId: newState[0]._id
+                categoryListId: newState[0]._id,
+                categoryList: data
             }; 
         case SET_RECIPE_BY_ID :
             return {...state, recipeById: recipe};

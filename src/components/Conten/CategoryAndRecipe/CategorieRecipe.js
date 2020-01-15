@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RecipeBlock from './RecipeBlock'
 import CategoryBlock from './CategoryBlock';
+import NavBlock from './NavBlock'
 
 
 class CategorieRecipe extends Component {
@@ -8,6 +9,7 @@ class CategorieRecipe extends Component {
   render(){
     return (
       <div>
+        <NavBlock />
         <CategoryBlock categoryId={this.props.categoryId} url={this.props.url} />
         <RecipeBlock categoryId={this.props.categoryId} />
       </div>

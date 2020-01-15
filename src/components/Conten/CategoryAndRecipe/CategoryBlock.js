@@ -33,11 +33,10 @@ class CategoryBlock extends Component {
         return (
         <div>
             <Link to={`/${url}`}><img className="Back" src={arrow} alt="Back"/></Link>
-            <Link to="/">Home</Link>
             <h3 className="TitleCategoryRecipe">{this.props.tasks.categoryListTitle}</h3>
             <div className="blockCategory">
-            <CategorieAdd parentId={this.props.categoryId} />
-            <Categorie  url={this.props.url} _id={this.props.categoryId} />
+                <CategorieAdd parentId={this.props.categoryId} />
+                <Categorie  url={this.props.url} _id={this.props.categoryId} />
             </div>
         </div>
         );

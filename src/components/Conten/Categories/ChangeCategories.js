@@ -7,7 +7,6 @@ class ChangeCategories extends Component {
         title: '',
         parentId: '',
     }
-     
     componentDidMount() {
         this.setState({
             title: this.props.title,
@@ -29,9 +28,8 @@ class ChangeCategories extends Component {
         return (
             <div>
                 <input type="text" className="Change" onChange={this.handleChange} value={this.state.title}/>
-                <button className='app' onClick={() => this.Edit()} >Edit</button>
-                <button className='app' onClick={() => this.Exit()} >Back</button>
-
+                <button className='app' onClick={() => this.Edit()}>Edit</button>
+                <button className='app' onClick={() => this.Exit()}>Back</button>
             </div>
         );
     }
