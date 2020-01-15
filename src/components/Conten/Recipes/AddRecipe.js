@@ -5,22 +5,21 @@ import { AddRecipeByCategorieThunk, GetRecipeAll } from '../../../action/actionC
 
 
 class AddRecipe extends Component {
-  state = {
-    titleRecipe: '',
-    textRecipe: '',
-    borderTitle: true,
-    borderText: true,
-  }
-  handleChangeTitle = ({target: {value} }) => {
-    this.setState({
-      titleRecipe: value,
+  constructor(props) {
+    super(props);
+    this.state = {
+      titleRecipe: '',
+      textRecipe: '',
       borderTitle: true,
-    })
-  }
-  handleChangeText = ({target: {value} }) => {
-    this.setState({
-      textRecipe: value,
       borderText: true,
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
     })
   }
   AddRecipe = () => {
@@ -33,7 +32,7 @@ class AddRecipe extends Component {
         borderText: true,
       })
     } else{
-        alert('Все поля необходимо заполнить')
+        alert('Все поля необходимо заполнить');
     }
     if (!this.state.titleRecipe){
       this.setState({
@@ -51,12 +50,12 @@ class AddRecipe extends Component {
     return (
       <div className="Add">
           <h1>Recipe add :</h1>
-          <input type="text" value={this.state.titleRecipe} onChange={this.handleChangeTitle} 
-          placeholder="title" className=
-          {this.state.borderTitle ? "inputAdd inputAddRecipe" : "inputAdd inputAddRecipe redBorder"}/>
-          <input type="text" value={this.state.textRecipe} onChange={this.handleChangeText} 
-          placeholder="text" className=
-          {this.state.borderText ? "inputAdd inputAddRecipe" : "inputAdd inputAddRecipe redBorder"}/>
+          <input type="text" value={this.state.titleRecipe} onChange={this.handleChange} 
+            placeholder="title" name="titleRecipe" className=
+            {this.state.borderTitle ? "inputAdd inputAddRecipe" : "inputAdd inputAddRecipe redBorder"}/>
+          <input type="text" value={this.state.textRecipe} onChange={this.handleChange} 
+            placeholder="text" name="textRecipe" className=
+            {this.state.borderText ? "inputAdd inputAddRecipe" : "inputAdd inputAddRecipe redBorder"}/>
           <button className='buttonAdd' onClick={this.AddRecipe}>Add</button>
       </div>
     );
