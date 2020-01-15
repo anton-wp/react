@@ -39,8 +39,6 @@ const tasks = (state = store, { data, type, _id, recipe, id}) => {
     }
 };
 
-
-
 export default tasks;
 
 

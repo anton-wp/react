@@ -6,8 +6,7 @@ import { UpdateRecipeThunk } from '../../../action/actionCreator'
 class ChangeRecipe extends Component {
     state = {
         title: '',
-        text: '',
-        
+        text: '',   
     }
     componentDidMount() {
         this.setState({
@@ -32,14 +31,14 @@ class ChangeRecipe extends Component {
     }
     render(){
         return (
-        <div className="ChangeRecipe">
-            <input type="text" onChange={this.handleChangeTitle} 
-            value={this.state.title} className="inputAdd inputAddRecipe" />
-            <input type="text" onChange={this.handleChangeText} 
-            value={this.state.text} className="inputAdd inputAddRecipe"/>
-            <button onClick={this.ChangeRecipe} className="app">Edit</button>
-            <button onClick={this.props.click} className="app">Back</button>
-        </div>
+            <div className="ChangeRecipe">
+                <input type="text" onChange={this.handleChangeTitle} 
+                value={this.state.title} className="inputAdd inputAddRecipe" />
+                <input type="text" onChange={this.handleChangeText} 
+                value={this.state.text} className="inputAdd inputAddRecipe"/>
+                <button onClick={this.ChangeRecipe} className="app">Edit</button>
+                <button onClick={this.props.click} className="app">Back</button>
+            </div>
         );
     }
 }

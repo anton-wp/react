@@ -7,9 +7,6 @@ import { Link } from 'react-router-dom';
 
 
 class Categorie extends Component {
-    state = {
-        tasks: '',        
-    }
     
     DeleteCategorie = (_id) => {
         this.props.RemoveCategorieThunk(_id);
@@ -18,16 +15,11 @@ class Categorie extends Component {
     ChangeCategorie = (_id) => {
         this.props.ChangeCategorie(_id);
     }
-
     render() { 
         const parentId = this.props._id ? this.props._id : null;
         const result =  this.props.tasks.categories.filter(category => category.parentId === parentId);
-        const Url = this.props.url ? this.props.url : '';
-        // const url =  this.props.url + '/categorie'
-        // // console.log(this.props)
         return (
-            <div >
-            
+            <div>
                 {result.map(category => (
                     <div className='categorie' key={category._id}>
                         <Link to={`/${category._id}`}>
@@ -36,10 +28,8 @@ class Categorie extends Component {
                         {category.isDeleted ? <ChangeCategories parentId={this.props._id} id={category._id} title={category.title}/>  : null}
                         <button className='delete buttonCategorie' onClick={() => this.DeleteCategorie(category._id)}>Delete</button>
                         {!category.isDeleted ? <button className='change buttonCategorie' onClick={() => this.ChangeCategorie(category._id)}>Edit</button> : null}
-                        
                     </div>
-                ))}
-               
+                ))}    
             </div>
         );
     }

@@ -63,7 +63,6 @@ export const SetRecipeById = (recipe) => ({
     type: SET_RECIPE_BY_ID,
     recipe
 })
-
 export const SetRecipeByCategories = (recipe) => ({
     type: SET_RECIPE_BY_CATEGORIES,
     recipe

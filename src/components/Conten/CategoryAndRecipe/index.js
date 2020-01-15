@@ -3,15 +3,9 @@ import CategorieRecipe from './CategorieRecipe'
 
 
 
-class Test extends Component {
-  state = {
-    title: '',
-    key: ''
-  }
- 
-   
-  render(){
+class CategoryAndRecipe extends Component {
 
+  render(){
     return (
       <div>
         <CategorieRecipe categoryId={this.props.match.params.categoryId} 
@@ -20,4 +14,4 @@ class Test extends Component {
     );
   }
 }
-export default (Test);
+export default (CategoryAndRecipe);

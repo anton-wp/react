@@ -25,7 +25,6 @@ class ChangeCategories extends Component {
     Exit = () =>  {
         this.props.ChangeCategorie(this.props.id);
     }
-    
     render() {
         return (
             <div>

@@ -22,7 +22,6 @@ export function getRecipeById (id) {
       return response.data;
   })
 }
-
 export function addRecipe (title, text, id) {
     return axios.post(`${API_HOST}recipe/create`, {
         title: title,

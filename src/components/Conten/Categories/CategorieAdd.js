@@ -10,7 +10,6 @@ class CategorieAdd extends Component {
         border: true
     }
     componentDidMount() {
-        console.log(this.props.parentId)
         this.setState({
             parentId: this.props.parentId
         })
@@ -20,10 +19,8 @@ class CategorieAdd extends Component {
             this.setState({
                 parentId: this.props.parentId
             })
-        
         }
-      }
-
+    }
     handleChange = ({target: {value} }) => {
         this.setState({
             title: value,
@@ -37,7 +34,7 @@ class CategorieAdd extends Component {
                 this.setState({
                     title: ''
                 })
-            } else {
+            }else {
                 alert('Введите название категории');
                 this.setState({
                     border: false
@@ -46,7 +43,6 @@ class CategorieAdd extends Component {
             }
         }
     }
-
     render() {
         return (
             <div className="Add">

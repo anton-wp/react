@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ChangeRecipe from './ChangeRecipe';
 import { GetRecipeById } from '../../../action/actionCreator';
@@ -23,9 +23,9 @@ class Recipe extends Component {
     render(){
         return (
         <div>
-            <NavLink to={`/categorie/${this.props.tasks.recipeById.categoryId}`}>
+            <Link to={`/${this.props.tasks.recipeById.categoryId}`}>
                 <img className="Back" src={arrow} alt="Back"/>
-            </NavLink>
+            </Link>
             <h3 className="TitleCategoryRecipe">{this.props.tasks.recipeById.title}</h3>
             <h3 className="TextRecipe">{this.props.tasks.recipeById.text}</h3>
             {this.state.change ? <ChangeRecipe click={this.edit} /> : null}
